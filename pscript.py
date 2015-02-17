@@ -95,9 +95,8 @@ for i in range(1,6):
 
 			else:
 				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')
-				# print(StimOnsetTime)
 				if ('1' in fields[StimACCCol]):
-					result = str(int(StimOnsetTime) - int(GoOnsetTime))
+					result = str(float(int(StimOnsetTime) - int(GoOnsetTime)) / 1000)
 					if ((fields[ConditionCol].replace('\x00', '') == 'Faces') or (fields[ConditionCol].replace('\x00', '') == 'Scenes')):
 						cond = fields[CategoryCol].replace('\x00', '') + fields[RelevanceCol].replace('\x00', '')
 					else:
