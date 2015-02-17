@@ -3,7 +3,6 @@ import csv
 import sys
 
 subject = sys.stdin.read().strip('\n')
-
 #result arrays for each block
 both_s = []
 both_f = []
