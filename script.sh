@@ -4,7 +4,7 @@
 #echo "1401" | python pscript.py
 for((n=1401; n<=1431; n++))
 do
-  if [ "$n" -ne 1410 ] && [ "$n" -ne 1420 ] && [ "$n" -ne 1422 ] && [ "$n" -ne 1424 ] && [ "$n" -ne 1425 ] && [ "$n" -ne 1427 ] && [ "$n" -ne 1428 ]
+  if [ "$n" -ne 1410 ] && [ "$n" -ne 1420 ] && [ "$n" -ne 1424 ] && [ "$n" -ne 1425 ] && [ "$n" -ne 1428 ]
   	then echo "$n" | python pscript.py
   fi
 done
