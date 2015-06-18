@@ -12,6 +12,7 @@ relevant_s = []
 relevant_f = []
 irrelevant_s = []
 irrelevant_f = []
+errors = []
 
 #final result arrays for various conditions
 both_s_file = []
@@ -22,6 +23,7 @@ relevant_s_file = []
 relevant_f_file = []
 irrelevant_s_file = []
 irrelevant_f_file = []
+errors_file = []
 
 #column numbers of relevant information
 GoOnsetCol = 49
@@ -79,10 +81,17 @@ for i in range(1,6):
 						irrelevant_s_file.append(' '.join(irrelevant_s))
 					else:
 						irrelevant_s_file.append("*")
+					
 					if (len(irrelevant_f) > 0):
 						irrelevant_f_file.append(' '.join(irrelevant_f))
 					else:
 						irrelevant_f_file.append("*")
+
+					if (len(errors) > 0):
+						errors_file.append(' '.join(errors))
+					else:
+						errors_file.append("*")
+					
 					del both_s[:]
 					del both_f[:]
 					del cat_s[:]
@@ -91,6 +100,7 @@ for i in range(1,6):
 					del relevant_f[:]
 					del irrelevant_s[:]
 					del irrelevant_f[:]
+					del errors[:]
 
 			else:
 				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')
@@ -116,6 +126,9 @@ for i in range(1,6):
 						both_f.append(result)
 					elif (cond == 'FacesCategorize'):
 						cat_f.append(result)
+				elif ('0' in fields[StimACCCol]):
+					errors.append(result)
+
 		linenum += 1
 
 
@@ -150,5 +163,9 @@ for val in irrelevant_s_file:
 f.close()
 f = open(subject+'_irrelevant_face.txt', 'w')
 for val in irrelevant_f_file:
+	f.write(val + '\n')
+f.close()
+f = open(subject+'_errors.txt', 'w')
+for val in errors_file:
 	f.write(val + '\n')
 f.close()
