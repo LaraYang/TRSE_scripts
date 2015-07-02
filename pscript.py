@@ -3,6 +3,7 @@ import csv
 import sys
 
 subject = sys.stdin.read().strip('\n')
+
 #result arrays for each block
 both_s = []
 both_f = []
@@ -160,6 +161,49 @@ for line in fileinput.input(subject+"-"+str(1)+".txt"):
 
 	linenum += 1
 
+#Print final block
+if (len(both_s) > 0):
+	both_s_file.append(' '.join(both_s))
+else:
+	both_s_file.append("*")
+if (len(both_f) > 0):
+	both_f_file.append(' '.join(both_f))
+else:
+	both_f_file.append("*")
+if (len(cat_s) > 0):
+	cat_s_file.append(' '.join(cat_s))
+else:
+	cat_s_file.append("*")
+		
+if (len(cat_f) > 0):
+	cat_f_file.append(' '.join(cat_f))
+else:
+	cat_f_file.append("*")
+
+if (len(relevant_s) > 0):
+	relevant_s_file.append(' '.join(relevant_s))
+else:
+	relevant_s_file.append("*")
+
+if (len(relevant_f) > 0):
+	relevant_f_file.append(' '.join(relevant_f))
+else:
+	relevant_f_file.append("*")
+
+if (len(irrelevant_s) > 0):
+	irrelevant_s_file.append(' '.join(irrelevant_s))
+else:
+	irrelevant_s_file.append("*")
+
+if (len(irrelevant_f) > 0):
+	irrelevant_f_file.append(' '.join(irrelevant_f))
+else:
+	irrelevant_f_file.append("*")
+
+if (len(errors) > 0):
+	errors_file.append(' '.join(errors))
+else:
+	errors_file.append("*")
 
 #write eight files
 f = open(subject+'_both_scene.txt', 'w')
