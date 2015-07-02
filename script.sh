@@ -1,7 +1,9 @@
 #!/bin/bash
 # bash command-line arguments are accessible as $0 (the bash script), $1, etc.
 # echo "Running" $0 "on" $1
-for file in $(ls -d 6**); do
+subjects=$(ls -d 6** | sed s/-[0-9].txt// | sort -u)
+for file in $subjects; do
+	echo $file	
 	echo $file | python pscript.py
 done
 # for((n=1401; n<=1431; n++))

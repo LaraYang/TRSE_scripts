@@ -51,14 +51,14 @@ blocknum = 0
 for i in range(1,6):
 	linenum = 1
 	for line in fileinput.input(subject+"-"+str(i)+".txt"):
-		if (linenum > 2):
+		if (linenum > 1):
 			fields = line.strip('\r\n').split('\t')
-			if (((linenum - 3) % 22) == 0):
+			if (((linenum - 2) % 22) == 0):
 				if (len(fields) > 1):
 					GoOnsetTime = fields[GoOnsetCol].replace('\x00', '')
-				if (linenum != 91):
+				if (linenum != 90):
 					blocknum += 1
-				if (linenum != 3):
+				if (linenum != 2):
 					if (len(both_s) > 0):
 						both_s_file.append(' '.join(both_s))
 					else:
@@ -114,8 +114,11 @@ for i in range(1,6):
 
 			else:
 				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')
-				result = str(float(int(StimOnsetTime) - int(GoOnsetTime)) / 1000)
 				if ('1' in fields[StimACCCol]):
+				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')		
+				if ('1' in fields[StimACCCol]):
+					result = str(float(int(StimOnsetTime) - int(GoOnsetTime)) / 1000)					
+
 					if ((fields[ConditionCol].replace('\x00', '') == 'Faces') or (fields[ConditionCol].replace('\x00', '') == 'Scenes')):
 						cond = fields[CategoryCol].replace('\x00', '') + fields[RelevanceCol].replace('\x00', '')
 					else:
@@ -127,7 +130,7 @@ for i in range(1,6):
 					elif (cond == 'FacesIrrelevant'):
 						irrelevant_f.append(result)
 					elif (cond == 'FacesRelevant'):
-						relevant_f.append(result)
+						relevant_f.append(result)	
 					elif (cond == 'ScenesBoth'):
 						both_s.append(result)
 					elif (cond == 'ScenesCategorize'):
@@ -137,6 +140,7 @@ for i in range(1,6):
 					elif (cond == 'FacesCategorize'):
 						cat_f.append(result)
 				elif ('0' in fields[StimACCCol]):
+					result = str(float(int(StimOnsetTime) - int(GoOnsetTime)) / 1000)
 					errors.append(result)
 
 		linenum += 1
