@@ -113,9 +113,7 @@ for i in range(1,6):
 					del errors[:]
 
 			else:
-				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')
-				if ('1' in fields[StimACCCol]):
-				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')		
+				StimOnsetTime = fields[StimOnsetCol].replace('\x00', '')				
 				if ('1' in fields[StimACCCol]):
 					result = str(float(int(StimOnsetTime) - int(GoOnsetTime)) / 1000)					
 
