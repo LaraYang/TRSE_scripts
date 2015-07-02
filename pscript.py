@@ -42,7 +42,7 @@ errors_file = []
 # ConditionCol = 29
 # RelevanceCol = 52
 
-#Enhance 76**
+#Enhance 76** and RVR 9**; same format
 GoOnsetCol = 50
 StimOnsetCol = 64
 StimACCCol = 59
@@ -56,10 +56,10 @@ cond = ""
 blocknum = 0
 
 #for every run
-for i in range(1,6):
+for i in range(1,5):
 	linenum = 1
-	if (subject == "7614" and i == 5):
-		break
+	# if (subject == "7614" and i == 5):
+		# break
 	for line in fileinput.input(subject+"-"+str(i)+".txt"):
 		if (linenum > 4):
 			fields = line.strip('\r\n').split('\t')
