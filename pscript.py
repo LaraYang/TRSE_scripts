@@ -58,7 +58,7 @@ blocknum = 0
 #for every run
 for i in range(1,5):
 	linenum = 1
-	# if (subject == "7614" and i == 5):
+	if (subject == "7614" and i == 5):
 		# break
 	for line in fileinput.input(subject+"-"+str(i)+".txt"):
 		if (linenum > 4):
@@ -66,9 +66,9 @@ for i in range(1,5):
 			if (((linenum - 5) % 22) == 0):
 				if (len(fields) > 1):
 					GoOnsetTime = fields[GoOnsetCol].replace('\x00', '')
-				if (linenum != 90):
+				if (linenum != 93):
 					blocknum += 1
-				if (linenum != 2):
+				if (linenum != 5):
 					if (len(both_s) > 0):
 						both_s_file.append(' '.join(both_s))
 					else:
