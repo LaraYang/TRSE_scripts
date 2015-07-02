@@ -1,7 +1,9 @@
 #!/bin/bash
 # bash command-line arguments are accessible as $0 (the bash script), $1, etc.
 # echo "Running" $0 "on" $1
-subjects=$(ls -d 9** | sed s/-[0-9].txt// | sort -u)
+# subjects=$(ls -d 9** | sed s/-[0-9].txt// | sort -u)
+subjects=$(ls 21** | sed s/-[0-9].txt//)
+
 for file in $subjects; do
 	echo $file	
 	echo $file | python pscript.py
