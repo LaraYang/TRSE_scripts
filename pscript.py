@@ -59,7 +59,7 @@ blocknum = 0
 for i in range(1,5):
 	linenum = 1
 	if (subject == "7614" and i == 5):
-		# break
+		break
 	for line in fileinput.input(subject+"-"+str(i)+".txt"):
 		if (linenum > 4):
 			fields = line.strip('\r\n').split('\t')
