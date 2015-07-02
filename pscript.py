@@ -27,7 +27,7 @@ irrelevant_f_file = []
 errors_file = []
 
 #column numbers of relevant information
-# original
+# original (REACH subjects, 14**)
 GoOnsetCol = 49
 StimOnsetCol = 63
 StimACCCol = 58
@@ -212,7 +212,7 @@ for i in range(1,6):
 # else:
 # 	errors_file.append("*")
 
-#write eight files
+#write all files
 f = open(subject+'_both_scene.txt', 'w')
 for val in both_s_file:
 	f.write(val + '\n')
