@@ -3,7 +3,6 @@ import csv
 import sys
 
 subject = sys.stdin.read().strip('\n')
-
 #result arrays for each block
 both_s = []
 both_f = []
@@ -52,12 +51,20 @@ errors_file = []
 # RelevanceCol = 57
 
 #Estrogen
-GoOnsetCol = 11
-StimOnsetCol = 16
-StimACCCol = 14
-CategoryCol = 4
-ConditionCol = 5
-RelevanceCol = 13
+# GoOnsetCol = 11
+# StimOnsetCol = 16
+# StimACCCol = 14
+# CategoryCol = 4
+# ConditionCol = 5
+# RelevanceCol = 13
+
+#TMS1
+GoOnsetCol = 42
+StimOnsetCol = 56
+StimACCCol = 51
+CategoryCol = 22
+ConditionCol = 26
+RelevanceCol = 49
 
 GoOnsetTime = 0
 StimOnsetTime = 0
@@ -70,10 +77,10 @@ linenum = 1
 # if (subject == "7614" and i == 5):
 	# break
 # for line in fileinput.input(subject+"-"+str(i)+".txt"):
-for line in fileinput.input(subject+"-"+str(1)+".txt"):
+for line in fileinput.input(subject+"-"+str(1)+"_fixed.txt"):
 	if (linenum > 1):
 		fields = line.strip('\r\n').split('\t')
-		if (((linenum - 2) % 21) == 0):
+		if (((linenum - 2) % 22) == 0):
 			if (len(fields) > 1):
 				GoOnsetTime = fields[GoOnsetCol].replace('\x00', '')
 			if (linenum != 2):
@@ -161,7 +168,7 @@ for line in fileinput.input(subject+"-"+str(1)+".txt"):
 
 	linenum += 1
 
-#Print final block
+# Print final block for Estrogen files and TRSETMS1
 if (len(both_s) > 0):
 	both_s_file.append(' '.join(both_s))
 else:
