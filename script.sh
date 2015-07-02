@@ -1,7 +1,7 @@
 #!/bin/bash
 # bash command-line arguments are accessible as $0 (the bash script), $1, etc.
 # echo "Running" $0 "on" $1
-subjects=$(ls * | grep 11[0-9][0-9]- | sed s/-[0-9]_fixed.txt// | sort -u)
+subjects=$(ls * | grep 14[0-9][0-9]- | sed s/-[0-9].txt// | sort -u)
 
 for file in $subjects; do
 	echo $file	
