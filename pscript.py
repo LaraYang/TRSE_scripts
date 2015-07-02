@@ -26,17 +26,27 @@ irrelevant_f_file = []
 errors_file = []
 
 #column numbers of relevant information
-GoOnsetCol = 49
-StimOnsetCol = 63
-StimACCCol = 58
-CategoryCol = 29
-ConditionCol = 33
-RelevanceCol = 56
+#original
+# GoOnsetCol = 49
+# StimOnsetCol = 63
+# StimACCCol = 58
+# CategoryCol = 29
+# ConditionCol = 33
+# RelevanceCol = 56
+
+#TRSE_TMS6
+GoOnsetCol = 45
+StimOnsetCol = 59
+StimACCCol = 54
+CategoryCol = 25
+ConditionCol = 29
+RelevanceCol = 52
 
 GoOnsetTime = 0
 StimOnsetTime = 0
 cond = ""
 blocknum = 0
+
 #for every run
 for i in range(1,6):
 	linenum = 1
