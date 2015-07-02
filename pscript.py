@@ -35,12 +35,20 @@ errors_file = []
 # RelevanceCol = 56
 
 #TRSE_TMS6
-GoOnsetCol = 45
-StimOnsetCol = 59
-StimACCCol = 54
-CategoryCol = 25
-ConditionCol = 29
-RelevanceCol = 52
+# GoOnsetCol = 45
+# StimOnsetCol = 59
+# StimACCCol = 54
+# CategoryCol = 25
+# ConditionCol = 29
+# RelevanceCol = 52
+
+#Enhance 76**
+GoOnsetCol = 50
+StimOnsetCol = 64
+StimACCCol = 59
+CategoryCol = 30
+ConditionCol = 34
+RelevanceCol = 57
 
 GoOnsetTime = 0
 StimOnsetTime = 0
@@ -50,10 +58,12 @@ blocknum = 0
 #for every run
 for i in range(1,6):
 	linenum = 1
+	if (subject == "7614" and i == 5):
+		break
 	for line in fileinput.input(subject+"-"+str(i)+".txt"):
-		if (linenum > 1):
+		if (linenum > 4):
 			fields = line.strip('\r\n').split('\t')
-			if (((linenum - 2) % 22) == 0):
+			if (((linenum - 5) % 22) == 0):
 				if (len(fields) > 1):
 					GoOnsetTime = fields[GoOnsetCol].replace('\x00', '')
 				if (linenum != 90):
